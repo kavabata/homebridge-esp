@@ -55,7 +55,7 @@ class dhtSensor {
     ];
   }
 
-  getLightLevel(callback) {
+  const getLightLevel = (callback) => {
     db({ s: "sensors" })
       .join({ d: "devices" }, "d.id", "s.device_id")
       .where({
@@ -69,9 +69,9 @@ class dhtSensor {
         const luks = Math.pow(this.level, 4) / 100000;
         callback(null, luks);
       });
-  }
+  };
 
-  getTemperature(callback) {
+  const getTemperature = (callback) => {
     db({ s: "sensors" })
       .join({ d: "devices" }, "d.id", "s.device_id")
       .where({
@@ -84,9 +84,9 @@ class dhtSensor {
         this.temperature = parseFloat(s.sensor_state, 10);
         callback(null, this.temperature);
       });
-  }
+  };
 
-  getHumidity(callback) {
+  const getHumidity = (callback) => {
     db({ s: "sensors" })
       .join({ d: "devices" }, "d.id", "s.device_id")
       .where({
@@ -99,9 +99,9 @@ class dhtSensor {
         this.humidity = parseFloat(s.sensor_state, 10);
         callback(null, this.humidity);
       });
-  }
+  };
 
-  getMotion(callback) {
+  const getMotion = (callback) => {
     db({ s: "sensors" })
       .join({ d: "devices" }, "d.id", "s.device_id")
       .where({
@@ -118,7 +118,7 @@ class dhtSensor {
         this.motion = passedSeconds < 60;
         callback(null, this.motion);
       });
-  }
+  };
 }
 
 module.exports = dhtSensor;
