@@ -114,7 +114,7 @@ class dhtSensor {
         const mo = moment
           .duration(moment(moment.now()).diff(moment(s.sensor_state)))
           .asSeconds();
-        const passedSeconds = mo - 18000; // difference
+        const passedSeconds = mo; // difference
         this.motion = passedSeconds < 60;
         callback(null, this.motion);
       });
