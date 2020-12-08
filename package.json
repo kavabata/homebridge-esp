@@ -18,6 +18,8 @@
     }
   ],
   "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "babel-preset-stage-1": "^6.24.1",
     "dotenv": "^8.2.0",
     "knex": "^0.21.12",
     "moment": "^2.29.1",
@@ -59,9 +61,6 @@
     ]
   },
   "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "*.js": "eslint --fix",

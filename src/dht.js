@@ -55,7 +55,7 @@ class dhtSensor {
     ];
   }
 
-  const getLightLevel = (callback) => {
+  getLightLevel = (callback) => {
     db({ s: "sensors" })
       .join({ d: "devices" }, "d.id", "s.device_id")
       .where({
@@ -71,7 +71,7 @@ class dhtSensor {
       });
   };
 
-  const getTemperature = (callback) => {
+  getTemperature = (callback) => {
     db({ s: "sensors" })
       .join({ d: "devices" }, "d.id", "s.device_id")
       .where({
@@ -86,7 +86,7 @@ class dhtSensor {
       });
   };
 
-  const getHumidity = (callback) => {
+  getHumidity = (callback) => {
     db({ s: "sensors" })
       .join({ d: "devices" }, "d.id", "s.device_id")
       .where({
@@ -101,7 +101,7 @@ class dhtSensor {
       });
   };
 
-  const getMotion = (callback) => {
+  getMotion = (callback) => {
     db({ s: "sensors" })
       .join({ d: "devices" }, "d.id", "s.device_id")
       .where({
