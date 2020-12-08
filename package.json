@@ -1,0 +1,70 @@
+{
+  "name": "homebridge-esp",
+  "version": "0.0.0-development",
+  "description": "Homebridge plugin for ESP.",
+  "license": "MIT",
+  "keywords": [
+    "homebridge-plugin",
+    "esp"
+  ],
+  "author": {
+    "name": "kavabata"
+  },
+  "contributors": [
+    {
+      "name": "Oleksandr Shuplat",
+      "email": "sasha.shuplat@gmail.com",
+      "url": "http://github.com/kavabata"
+    }
+  ],
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "knex": "^0.21.12",
+    "moment": "^2.29.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-plugin-import": "^2.14.0",
+    "husky": ">=1",
+    "lint-staged": "^10.0.0-beta.12",
+    "prettier": "^1.19.1",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.1"
+  },
+  "engines": {
+    "node": ">=7.6.0",
+    "homebridge": ">=0.4.0"
+  },
+  "scripts": {
+    "start": "DEBUG=Esp homebridge -D -R -P . -U ./homebridge",
+    "format": "prettier --write \"**/*.{js,md}\"",
+    "posttest": "npm run format"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2019
+    },
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix",
+    "*.{js,md}": "prettier --write"
+  }
+}
